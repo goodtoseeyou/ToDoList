@@ -1,0 +1,33 @@
+.noActive {
+  display: none;
+}
+h1 {
+  color: rgb(42, 86, 244);
+  font-style: italic;
+}
+.mainInput {
+  color: rgb(255, 255, 255);
+  background-color: rgb(79, 81, 89);
+  padding: 0.5em;
+  border: 2px solid rgb(42, 86, 244);
+  border-radius: 7px;
+}
+#AddNew {
+  margin: 0.5em;
+  border: 2px solid rgb(13, 128, 11);
+  border-radius: 5px;
+}
+#DelOld {
+  margin: 0.5em;
+  border: 2px solid rgb(147, 33, 7);
+  border-radius: 5px;
+}
+.byName {
+  color: rgb(171, 9, 168);
+}
+.byId {
+  color: rgb(24, 189, 201);
+}
+.filter {
+  color: rgb(15, 198, 21);
+}

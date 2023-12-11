@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="https://unpkg.com/vue@next"></script>
+    <script defer src="./main.js"></script>
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Список дел</h1>
+      <input type="text" v-model="itemForAdd" class="mainInput" />
+      <button v-on:click="add" id="AddNew">Добавить задачу</button>
+      <button v-on:click="del(index)" id="DelOld">Удалить задачу</button>
+      <!-- добавил index -->
+      <div class="soft">
+        <div>
+          <label for="soft0" class="byName">Сортировать от А до Я</label>
+          <input type="radio" name="sort" id="soft0" v-on:click="sort0" />
+        </div>
+        <div>
+          <label for="soft1" class="byName">Сортировать от Я до А</label>
+          <input type="radio" name="sort" id="soft1" v-on:click="sort1" />
+        </div>
+        <div>
+          <label for="soft2" class="byId">Самые ранние задачи</label>
+          <input type="radio" name="sort" id="soft2" v-on:click="sort2" />
+        </div>
+        <div>
+          <label for="soft3" class="byId">Самые поздние задачи</label>
+          <input type="radio" name="sort" id="soft3" v-on:click="sort3" />
+        </div>
+      </div>
+      <div class="filter">
+        <div>
+          <label for="check">Выполненные задачи</label>
+          <input type="radio" name="filter" id="check" v-on:click="filter1" />
+        </div>
+        <div>
+          <label for="check2">Невыполненные задачи</label>
+          <input type="radio" name="filter" id="check2" v-on:click="filter2" />
+        </div>
+        <div>
+          <label for="check3">Показать все задачи</label>
+          <input type="radio" name="filter" id="check3" v-on:click="filter3" />
+        </div>
+      </div>
+      <todo-item
+        v-for="(todo, index) in todoList"
+        :todo="todo"
+        :key="todo.id"
+        :index="index"
+        v-on:complete-todo="makeComplete(index)"
+        v-on:dblclick="del(index)"
+        v-on:click="onclickItem(index)"
+        :class="{noActive: todo.noActive}"
+      ></todo-item>
+      <!-- локальный объект -->
+      <!-- <counter></counter> глобальный объект-->
+    </div>
+  </body>
+</html>
